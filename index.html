@@ -1,705 +1,689 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sakae PR — Awards & Festival Strategy</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#060608;
+  --deep:#0d0d12;
+  --card:#13131a;
+  --border:#1e1e2a;
+  --border2:#2a2a3a;
+  --gold:#c9a96e;
+  --gold2:#e8c98a;
+  --silver:#8a8a9a;
+  --white:#f0ede8;
+  --white2:#ccc9c0;
+  --accent:#5a3e8a;
+  --red:#8a2a2a;
+  --green:#1e4a2a;
+  --teal:#1a3a4a;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-sans);font-weight:300;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:rgba(6,6,8,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--font-serif);font-size:1.5rem;letter-spacing:.35em;font-weight:300;color:var(--white);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--silver);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1px;background:var(--white)}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--deep);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 60%,#1a1020 0%,var(--black) 70%)}
+.hero-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-lines::before,.hero-lines::after{content:'';position:absolute;border:1px solid rgba(201,169,110,.06);border-radius:50%}
+.hero-lines::before{width:140%;height:140%;top:-20%;left:-20%}
+.hero-lines::after{width:80%;height:80%;top:10%;left:10%}
+.hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,8vw,7.5rem);line-height:1.0;font-weight:300;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .4s forwards}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-subtitle{font-size:clamp(.9rem,2vw,1.05rem);color:var(--white2);max-width:48ch;margin:0 auto 3rem;line-height:1.75;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .8s forwards}
+.btn{display:inline-block;padding:.85rem 2.2rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .25s;cursor:pointer;border:none;font-family:var(--font-sans)}
+.btn-primary{background:var(--gold);color:var(--black);font-weight:600}
+.btn-primary:hover{background:var(--gold2)}
+.btn-outline{border:1px solid var(--border2);color:var(--white2);background:transparent}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.scroll-line{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.4}
+.scroll-line span{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}
+.scroll-line::after{content:'';display:block;width:1px;height:3rem;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2s infinite}
+
+/* ── SECTIONS ── */
+section{padding:6rem 4rem}
+@media(max-width:768px){section{padding:4rem 1.5rem}}
+.section-label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.section-title{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;line-height:1.15}
+.section-title em{font-style:italic;color:var(--gold)}
+
+/* ── FEATURED ── */
+#featured{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.featured-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:900px){.featured-inner{grid-template-columns:1fr;gap:3rem}}
+.featured-poster-wrap{position:relative}
+.featured-poster{width:100%;max-width:380px;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--card);position:relative}
+.poster-placeholder{width:100%;max-width:380px;aspect-ratio:2/3;background:linear-gradient(135deg,#1a1020,#0d1a2a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;border:1px solid var(--border2)}
+.poster-placeholder .poster-title{font-family:var(--font-serif);font-size:2.2rem;font-style:italic;color:var(--gold);letter-spacing:.05em}
+.poster-placeholder .poster-dir{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}
+.badge-oscar{position:absolute;top:-1rem;right:-1rem;background:var(--gold);color:var(--black);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:.5rem 1rem}
+.featured-text .section-label{margin-bottom:2rem}
+.featured-text h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}
+.featured-text h2 em{font-style:italic;color:var(--gold)}
+.feat-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem}
+.feat-meta-item{display:flex;flex-direction:column;gap:.25rem}
+.feat-meta-item .label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}
+.feat-meta-item .value{font-size:.85rem;color:var(--white)}
+.featured-text p{color:var(--white2);line-height:1.8;font-size:.95rem;max-width:44ch;margin-bottom:2.5rem}
+
+/* ── ABOUT ── */
+#about{max-width:1200px;margin:0 auto}
+.about-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:3rem}}
+.about-left .section-title{margin-bottom:2rem}
+.about-stat-list{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}
+.about-stat{border-left:1px solid var(--gold);padding-left:1.5rem}
+.about-stat .num{font-family:var(--font-serif);font-size:2.5rem;color:var(--gold);font-weight:300;line-height:1}
+.about-stat .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-top:.25rem}
+.about-right{padding-top:1rem}
+.about-right p{color:var(--white2);line-height:1.9;font-size:.95rem;margin-bottom:1.5rem}
+.about-clients-strip{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.client-tag{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--border2);padding:.4rem .9rem;color:var(--silver)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--deep);border-top:1px solid var(--border)}
+.projects-inner{max-width:1200px;margin:0 auto}
+.projects-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+.project-card{background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;cursor:pointer;transition:border-color .3s}
+.project-card:hover{border-color:var(--gold)}
+.project-card:hover .card-overlay{opacity:1}
+.card-poster{aspect-ratio:2/3;background:linear-gradient(160deg,#1a1020 0%,#0d1a2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;position:relative}
+.card-poster-title{font-family:var(--font-serif);font-size:1.4rem;font-style:italic;color:var(--gold);text-align:center;line-height:1.2}
+.card-poster-year{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);margin-top:.5rem}
+.card-overlay{position:absolute;inset:0;background:rgba(6,6,8,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;opacity:0;transition:opacity .3s;padding:1.5rem;text-align:center}
+.card-overlay .fest-badge{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:.3rem .8rem}
+.card-overlay .fest-note{font-size:.75rem;color:var(--white2);line-height:1.5}
+.card-info{padding:1rem 1.2rem;border-top:1px solid var(--border)}
+.card-info h4{font-family:var(--font-serif);font-size:1rem;font-weight:400;color:var(--white);margin-bottom:.25rem}
+.card-info span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}
+
+/* ── INDUSTRY ALERT ── */
+#alert{border-top:1px solid var(--border)}
+.alert-inner{max-width:1200px;margin:0 auto}
+.alert-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:.75rem;flex-wrap:wrap;gap:1rem}
+.alert-subtitle{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver);margin-bottom:3rem}
+.alert-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:900px){.alert-grid{grid-template-columns:1fr}}
+.alert-panel{background:var(--card);border:1px solid var(--border)}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid var(--border)}
+.panel-header h3{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--white)}
+.panel-refresh{background:none;border:1px solid var(--border2);color:var(--silver);padding:.35rem .9rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .25s}
+.panel-refresh:hover{border-color:var(--gold);color:var(--gold)}
+.panel-body{padding:1.2rem}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.news-grid{grid-template-columns:1fr}}
+.news-card{background:var(--deep);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .3s}
+.news-card:hover{border-color:var(--border2)}
+.cat-badge{display:inline-block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .6rem;margin-bottom:.25rem;font-weight:600}
+.cat-festival{background:rgba(26,58,74,.6);color:#7ec8e8;border:1px solid rgba(126,200,232,.2)}
+.cat-awards{background:rgba(138,42,42,.3);color:#e87e7e;border:1px solid rgba(232,126,126,.2)}
+.cat-estreia,.cat-lançamento,.cat-release{background:rgba(30,74,42,.4);color:#7ee89a;border:1px solid rgba(126,232,154,.2)}
+.cat-crítica,.cat-crítica,.cat-review{background:rgba(90,62,138,.3);color:#b07ee8;border:1px solid rgba(176,126,232,.2)}
+.cat-default{background:rgba(201,169,110,.15);color:var(--gold);border:1px solid rgba(201,169,110,.2)}
+.news-card h4{font-family:var(--font-serif);font-size:.95rem;font-weight:400;line-height:1.3;color:var(--white)}
+.news-card p{font-size:.75rem;color:var(--silver);line-height:1.6;flex:1}
+.news-card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.25rem}
+.news-date{font-size:.6rem;color:var(--silver);opacity:.6}
+.news-source a{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;transition:opacity .2s}
+.news-source a:hover{opacity:1}
+
+/* Skeleton */
+.skel-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.skel-card{background:var(--deep);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.skel{background:linear-gradient(90deg,var(--border) 25%,var(--border2) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:2px}
+.skel-badge{width:60px;height:18px}
+.skel-title{width:100%;height:14px}
+.skel-title2{width:75%;height:14px}
+.skel-text{width:100%;height:10px}
+.skel-text2{width:85%;height:10px}
+.skel-text3{width:90%;height:10px}
+.skel-foot{width:50%;height:10px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.error-state{padding:2rem;text-align:center;color:var(--silver);display:flex;flex-direction:column;align-items:center;gap:1rem}
+.error-state p{font-size:.85rem}
+
+/* ── MASTERCLASS ── */
+#masterclass{background:var(--deep);border-top:1px solid var(--border)}
+.mc-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+@media(max-width:900px){.mc-inner{grid-template-columns:1fr;gap:3rem}}
+.mc-text .section-title{margin-bottom:1.5rem}
+.mc-text p{color:var(--white2);line-height:1.9;font-size:.95rem;max-width:44ch;margin-bottom:2.5rem}
+.mc-visual{background:var(--card);border:1px solid var(--border);padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem;min-height:320px}
+.mc-icon{font-family:var(--font-serif);font-size:4rem;color:var(--gold);font-style:italic;opacity:.4}
+.mc-tagline{font-family:var(--font-serif);font-size:1.4rem;font-style:italic;color:var(--white2);line-height:1.4}
+
+/* ── CONTACT ── */
+#contact{border-top:1px solid var(--border)}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+@media(max-width:900px){.contact-inner{grid-template-columns:1fr;gap:3rem}}
+.contact-left .section-title{margin-bottom:1.5rem}
+.contact-left p{color:var(--white2);line-height:1.9;font-size:.95rem;max-width:40ch;margin-bottom:2.5rem}
+.contact-email{display:block;font-family:var(--font-serif);font-size:1.5rem;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:1rem;margin-bottom:2rem;transition:color .25s}
+.contact-email:hover{color:var(--gold2)}
+.contact-locations{display:flex;gap:3rem;flex-wrap:wrap}
+.location h4{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);margin-bottom:.5rem}
+.location p{font-size:.85rem;color:var(--white2)}
+.contact-right{border-left:1px solid var(--border);padding-left:5rem}
+@media(max-width:900px){.contact-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:3rem}}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:1.5rem}
+.service-list li{display:flex;gap:1rem;align-items:flex-start;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.service-list li:last-child{border-bottom:none;padding-bottom:0}
+.svc-num{font-family:var(--font-serif);font-size:.85rem;color:var(--gold);opacity:.6;min-width:1.5rem;margin-top:.1rem}
+.svc-text h4{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.35rem}
+.svc-text p{font-size:.8rem;color:var(--silver);line-height:1.6}
+
+/* ── FOOTER ── */
+footer{background:var(--deep);border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+@media(max-width:768px){footer{padding:2rem 1.5rem}}
+.footer-logo{font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.35em;color:var(--silver)}
+.footer-copy{font-size:.65rem;letter-spacing:.1em;color:var(--silver);opacity:.5}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* util */
+.max-w{max-width:1200px;margin:0 auto}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"/&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1">&lt;title&gt;Sakae PR — Awards &amp; Festival Strategy&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap');&lt;/style&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}</p>
-<p class="p1">:root{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--black:#060608;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--deep:#0d0d12;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--card:#13131a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--border:#1e1e2a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--border2:#2a2a3a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gold:#c9a96e;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gold2:#e8c98a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--silver:#8a8a9a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--white:#f0ede8;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--white2:#ccc9c0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--accent:#5a3e8a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--red:#8a2a2a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--green:#1e4a2a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--teal:#1a3a4a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--font-serif:'Cormorant Garamond',Georgia,serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--font-sans:'Outfit',system-ui,sans-serif;</p>
-<p class="p1">}</p>
-<p class="p1">html{scroll-behavior:smooth}</p>
-<p class="p1">body{background:var(--black);color:var(--white);font-family:var(--font-sans);font-weight:300;overflow-x:hidden}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── NAV ── */</p>
-<p class="p1">nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:rgba(6,6,8,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}</p>
-<p class="p1">.nav-logo{font-family:var(--font-serif);font-size:1.5rem;letter-spacing:.35em;font-weight:300;color:var(--white);text-decoration:none}</p>
-<p class="p1">.nav-logo span{color:var(--gold)}</p>
-<p class="p1">.nav-links{display:flex;gap:2.5rem;list-style:none}</p>
-<p class="p1">.nav-links a{color:var(--silver);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:color .25s}</p>
-<p class="p1">.nav-links a:hover{color:var(--gold)}</p>
-<p class="p1">.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}</p>
-<p class="p1">.hamburger span{display:block;width:22px;height:1px;background:var(--white)}</p>
-<p class="p1">@media(max-width:768px){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav{padding:1.2rem 1.5rem}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--deep);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-links.open{display:flex}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hamburger{display:flex}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── HERO ── */</p>
-<p class="p1">#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}</p>
-<p class="p1">.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 60%,#1a1020 0%,var(--black) 70%)}</p>
-<p class="p1">.hero-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none}</p>
-<p class="p1">.hero-lines::before,.hero-lines::after{content:'';position:absolute;border:1px solid rgba(201,169,110,.06);border-radius:50%}</p>
-<p class="p1">.hero-lines::before{width:140%;height:140%;top:-20%;left:-20%}</p>
-<p class="p1">.hero-lines::after{width:80%;height:80%;top:10%;left:10%}</p>
-<p class="p1">.hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s forwards}</p>
-<p class="p1">.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,8vw,7.5rem);line-height:1.0;font-weight:300;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .4s forwards}</p>
-<p class="p1">.hero-title em{font-style:italic;color:var(--gold)}</p>
-<p class="p1">.hero-subtitle{font-size:clamp(.9rem,2vw,1.05rem);color:var(--white2);max-width:48ch;margin:0 auto 3rem;line-height:1.75;font-weight:300;opacity:0;animation:fadeUp .8s .6s forwards}</p>
-<p class="p1">.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .8s forwards}</p>
-<p class="p1">.btn{display:inline-block;padding:.85rem 2.2rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .25s;cursor:pointer;border:none;font-family:var(--font-sans)}</p>
-<p class="p1">.btn-primary{background:var(--gold);color:var(--black);font-weight:600}</p>
-<p class="p1">.btn-primary:hover{background:var(--gold2)}</p>
-<p class="p1">.btn-outline{border:1px solid var(--border2);color:var(--white2);background:transparent}</p>
-<p class="p1">.btn-outline:hover{border-color:var(--gold);color:var(--gold)}</p>
-<p class="p1">.scroll-line{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.4}</p>
-<p class="p1">.scroll-line span{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}</p>
-<p class="p1">.scroll-line::after{content:'';display:block;width:1px;height:3rem;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2s infinite}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── SECTIONS ── */</p>
-<p class="p1">section{padding:6rem 4rem}</p>
-<p class="p1">@media(max-width:768px){section{padding:4rem 1.5rem}}</p>
-<p class="p1">.section-label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}</p>
-<p class="p1">.section-title{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;line-height:1.15}</p>
-<p class="p1">.section-title em{font-style:italic;color:var(--gold)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── FEATURED ── */</p>
-<p class="p1">#featured{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}</p>
-<p class="p1">.featured-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}</p>
-<p class="p1">@media(max-width:900px){.featured-inner{grid-template-columns:1fr;gap:3rem}}</p>
-<p class="p1">.featured-poster-wrap{position:relative}</p>
-<p class="p1">.featured-poster{width:100%;max-width:380px;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--card);position:relative}</p>
-<p class="p1">.poster-placeholder{width:100%;max-width:380px;aspect-ratio:2/3;background:linear-gradient(135deg,#1a1020,#0d1a2a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;border:1px solid var(--border2)}</p>
-<p class="p1">.poster-placeholder .poster-title{font-family:var(--font-serif);font-size:2.2rem;font-style:italic;color:var(--gold);letter-spacing:.05em}</p>
-<p class="p1">.poster-placeholder .poster-dir{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}</p>
-<p class="p1">.badge-oscar{position:absolute;top:-1rem;right:-1rem;background:var(--gold);color:var(--black);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:.5rem 1rem}</p>
-<p class="p1">.featured-text .section-label{margin-bottom:2rem}</p>
-<p class="p1">.featured-text h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}</p>
-<p class="p1">.featured-text h2 em{font-style:italic;color:var(--gold)}</p>
-<p class="p1">.feat-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem}</p>
-<p class="p1">.feat-meta-item{display:flex;flex-direction:column;gap:.25rem}</p>
-<p class="p1">.feat-meta-item .label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}</p>
-<p class="p1">.feat-meta-item .value{font-size:.85rem;color:var(--white)}</p>
-<p class="p1">.featured-text p{color:var(--white2);line-height:1.8;font-size:.95rem;max-width:44ch;margin-bottom:2.5rem}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── ABOUT ── */</p>
-<p class="p1">#about{max-width:1200px;margin:0 auto}</p>
-<p class="p1">.about-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start}</p>
-<p class="p1">@media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:3rem}}</p>
-<p class="p1">.about-left .section-title{margin-bottom:2rem}</p>
-<p class="p1">.about-stat-list{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}</p>
-<p class="p1">.about-stat{border-left:1px solid var(--gold);padding-left:1.5rem}</p>
-<p class="p1">.about-stat .num{font-family:var(--font-serif);font-size:2.5rem;color:var(--gold);font-weight:300;line-height:1}</p>
-<p class="p1">.about-stat .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-top:.25rem}</p>
-<p class="p1">.about-right{padding-top:1rem}</p>
-<p class="p1">.about-right p{color:var(--white2);line-height:1.9;font-size:.95rem;margin-bottom:1.5rem}</p>
-<p class="p1">.about-clients-strip{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.5rem}</p>
-<p class="p1">.client-tag{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--border2);padding:.4rem .9rem;color:var(--silver)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── PROJECTS ── */</p>
-<p class="p1">#projects{background:var(--deep);border-top:1px solid var(--border)}</p>
-<p class="p1">.projects-inner{max-width:1200px;margin:0 auto}</p>
-<p class="p1">.projects-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}</p>
-<p class="p1">.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}</p>
-<p class="p1">.project-card{background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;cursor:pointer;transition:border-color .3s}</p>
-<p class="p1">.project-card:hover{border-color:var(--gold)}</p>
-<p class="p1">.project-card:hover .card-overlay{opacity:1}</p>
-<p class="p1">.card-poster{aspect-ratio:2/3;background:linear-gradient(160deg,#1a1020 0%,#0d1a2a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;position:relative}</p>
-<p class="p1">.card-poster-title{font-family:var(--font-serif);font-size:1.4rem;font-style:italic;color:var(--gold);text-align:center;line-height:1.2}</p>
-<p class="p1">.card-poster-year{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);margin-top:.5rem}</p>
-<p class="p1">.card-overlay{position:absolute;inset:0;background:rgba(6,6,8,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;opacity:0;transition:opacity .3s;padding:1.5rem;text-align:center}</p>
-<p class="p1">.card-overlay .fest-badge{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:.3rem .8rem}</p>
-<p class="p1">.card-overlay .fest-note{font-size:.75rem;color:var(--white2);line-height:1.5}</p>
-<p class="p1">.card-info{padding:1rem 1.2rem;border-top:1px solid var(--border)}</p>
-<p class="p1">.card-info h4{font-family:var(--font-serif);font-size:1rem;font-weight:400;color:var(--white);margin-bottom:.25rem}</p>
-<p class="p1">.card-info span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── INDUSTRY ALERT ── */</p>
-<p class="p1">#alert{border-top:1px solid var(--border)}</p>
-<p class="p1">.alert-inner{max-width:1200px;margin:0 auto}</p>
-<p class="p1">.alert-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:.75rem;flex-wrap:wrap;gap:1rem}</p>
-<p class="p1">.alert-subtitle{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver);margin-bottom:3rem}</p>
-<p class="p1">.alert-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}</p>
-<p class="p1">@media(max-width:900px){.alert-grid{grid-template-columns:1fr}}</p>
-<p class="p1">.alert-panel{background:var(--card);border:1px solid var(--border)}</p>
-<p class="p1">.panel-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid var(--border)}</p>
-<p class="p1">.panel-header h3{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--white)}</p>
-<p class="p1">.panel-refresh{background:none;border:1px solid var(--border2);color:var(--silver);padding:.35rem .9rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);transition:all .25s}</p>
-<p class="p1">.panel-refresh:hover{border-color:var(--gold);color:var(--gold)}</p>
-<p class="p1">.panel-body{padding:1.2rem}</p>
-<p class="p1">.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}</p>
-<p class="p1">@media(max-width:600px){.news-grid{grid-template-columns:1fr}}</p>
-<p class="p1">.news-card{background:var(--deep);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .3s}</p>
-<p class="p1">.news-card:hover{border-color:var(--border2)}</p>
-<p class="p1">.cat-badge{display:inline-block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .6rem;margin-bottom:.25rem;font-weight:600}</p>
-<p class="p1">.cat-festival{background:rgba(26,58,74,.6);color:#7ec8e8;border:1px solid rgba(126,200,232,.2)}</p>
-<p class="p1">.cat-awards{background:rgba(138,42,42,.3);color:#e87e7e;border:1px solid rgba(232,126,126,.2)}</p>
-<p class="p1">.cat-estreia,.cat-lançamento,.cat-release{background:rgba(30,74,42,.4);color:#7ee89a;border:1px solid rgba(126,232,154,.2)}</p>
-<p class="p1">.cat-crítica,.cat-crítica,.cat-review{background:rgba(90,62,138,.3);color:#b07ee8;border:1px solid rgba(176,126,232,.2)}</p>
-<p class="p1">.cat-default{background:rgba(201,169,110,.15);color:var(--gold);border:1px solid rgba(201,169,110,.2)}</p>
-<p class="p1">.news-card h4{font-family:var(--font-serif);font-size:.95rem;font-weight:400;line-height:1.3;color:var(--white)}</p>
-<p class="p1">.news-card p{font-size:.75rem;color:var(--silver);line-height:1.6;flex:1}</p>
-<p class="p1">.news-card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.25rem}</p>
-<p class="p1">.news-date{font-size:.6rem;color:var(--silver);opacity:.6}</p>
-<p class="p1">.news-source a{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;transition:opacity .2s}</p>
-<p class="p1">.news-source a:hover{opacity:1}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Skeleton */</p>
-<p class="p1">.skel-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}</p>
-<p class="p1">.skel-card{background:var(--deep);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.6rem}</p>
-<p class="p1">.skel{background:linear-gradient(90deg,var(--border) 25%,var(--border2) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:2px}</p>
-<p class="p1">.skel-badge{width:60px;height:18px}</p>
-<p class="p1">.skel-title{width:100%;height:14px}</p>
-<p class="p1">.skel-title2{width:75%;height:14px}</p>
-<p class="p1">.skel-text{width:100%;height:10px}</p>
-<p class="p1">.skel-text2{width:85%;height:10px}</p>
-<p class="p1">.skel-text3{width:90%;height:10px}</p>
-<p class="p1">.skel-foot{width:50%;height:10px}</p>
-<p class="p1">@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</p>
-<p class="p1">.error-state{padding:2rem;text-align:center;color:var(--silver);display:flex;flex-direction:column;align-items:center;gap:1rem}</p>
-<p class="p1">.error-state p{font-size:.85rem}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── MASTERCLASS ── */</p>
-<p class="p1">#masterclass{background:var(--deep);border-top:1px solid var(--border)}</p>
-<p class="p1">.mc-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}</p>
-<p class="p1">@media(max-width:900px){.mc-inner{grid-template-columns:1fr;gap:3rem}}</p>
-<p class="p1">.mc-text .section-title{margin-bottom:1.5rem}</p>
-<p class="p1">.mc-text p{color:var(--white2);line-height:1.9;font-size:.95rem;max-width:44ch;margin-bottom:2.5rem}</p>
-<p class="p1">.mc-visual{background:var(--card);border:1px solid var(--border);padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem;min-height:320px}</p>
-<p class="p1">.mc-icon{font-family:var(--font-serif);font-size:4rem;color:var(--gold);font-style:italic;opacity:.4}</p>
-<p class="p1">.mc-tagline{font-family:var(--font-serif);font-size:1.4rem;font-style:italic;color:var(--white2);line-height:1.4}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── CONTACT ── */</p>
-<p class="p1">#contact{border-top:1px solid var(--border)}</p>
-<p class="p1">.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}</p>
-<p class="p1">@media(max-width:900px){.contact-inner{grid-template-columns:1fr;gap:3rem}}</p>
-<p class="p1">.contact-left .section-title{margin-bottom:1.5rem}</p>
-<p class="p1">.contact-left p{color:var(--white2);line-height:1.9;font-size:.95rem;max-width:40ch;margin-bottom:2.5rem}</p>
-<p class="p1">.contact-email{display:block;font-family:var(--font-serif);font-size:1.5rem;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:1rem;margin-bottom:2rem;transition:color .25s}</p>
-<p class="p1">.contact-email:hover{color:var(--gold2)}</p>
-<p class="p1">.contact-locations{display:flex;gap:3rem;flex-wrap:wrap}</p>
-<p class="p1">.location h4{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);margin-bottom:.5rem}</p>
-<p class="p1">.location p{font-size:.85rem;color:var(--white2)}</p>
-<p class="p1">.contact-right{border-left:1px solid var(--border);padding-left:5rem}</p>
-<p class="p1">@media(max-width:900px){.contact-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:3rem}}</p>
-<p class="p1">.service-list{list-style:none;display:flex;flex-direction:column;gap:1.5rem}</p>
-<p class="p1">.service-list li{display:flex;gap:1rem;align-items:flex-start;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}</p>
-<p class="p1">.service-list li:last-child{border-bottom:none;padding-bottom:0}</p>
-<p class="p1">.svc-num{font-family:var(--font-serif);font-size:.85rem;color:var(--gold);opacity:.6;min-width:1.5rem;margin-top:.1rem}</p>
-<p class="p1">.svc-text h4{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.35rem}</p>
-<p class="p1">.svc-text p{font-size:.8rem;color:var(--silver);line-height:1.6}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── FOOTER ── */</p>
-<p class="p1">footer{background:var(--deep);border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}</p>
-<p class="p1">@media(max-width:768px){footer{padding:2rem 1.5rem}}</p>
-<p class="p1">.footer-logo{font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.35em;color:var(--silver)}</p>
-<p class="p1">.footer-copy{font-size:.65rem;letter-spacing:.1em;color:var(--silver);opacity:.5}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── ANIMATIONS ── */</p>
-<p class="p1">@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}</p>
-<p class="p1">@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}</p>
-<p class="p1">.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}</p>
-<p class="p1">.reveal.visible{opacity:1;transform:none}</p>
-<p class="p2"><br></p>
-<p class="p1">/* util */</p>
-<p class="p1">.max-w{max-width:1200px;margin:0 auto}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- NAV --&gt;</p>
-<p class="p1">&lt;nav id="nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#" class="nav-logo"&gt;SAKAE PR&lt;span&gt;.&lt;/span&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;ul class="nav-links" id="navLinks"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#featured"&gt;Clients&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#alert"&gt;Industry Alert&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#masterclass"&gt;Masterclass&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#contact" class="btn btn-primary" style="padding:.55rem 1.4rem"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hamburger" id="hamburger" onclick="toggleMenu()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- HERO --&gt;</p>
-<p class="p1">&lt;section id="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-bg"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-lines"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div style="position:relative;z-index:1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="hero-eyebrow"&gt;Awards Strategy · Festival Positioning · International PR&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="hero-title"&gt;The art of&lt;br/&gt;&lt;em&gt;being seen&lt;/em&gt;&lt;br/&gt;at the right moment.&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-subtitle"&gt;Sakae PR navigates the most competitive circuits in world cinema — from DOCNYC to the Oscars®, from qualified films to shortlisted and nominees&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#featured" class="btn btn-primary"&gt;Current Campaign&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#contact" class="btn btn-outline"&gt;Work With Us&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="scroll-line"&gt;&lt;span&gt;Scroll&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- FEATURED --&gt;</p>
-<p class="p1">&lt;section id="featured"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="featured-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="featured-poster-wrap reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="poster-placeholder"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="poster-title"&gt;Walk Run Cha-Cha&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="poster-dir"&gt;Laura Nix&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="width:60%;height:1px;background:var(--border2);margin:1rem 0"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver)"&gt;The New York Times&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="badge-oscar"&gt;92nd Academy Awards® Nominee&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="featured-text reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="section-label"&gt;Featured Campaign&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;WALK RUN&lt;br/&gt;CHA-CHA&lt;br/&gt;&lt;em&gt;nominated for the 92nd Oscars®&lt;/em&gt;&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="feat-meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feat-meta-item"&gt;&lt;span class="label"&gt;Director&lt;/span&gt;&lt;span class="value"&gt;Laura Nix&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feat-meta-item"&gt;&lt;span class="label"&gt;Category&lt;/span&gt;&lt;span class="value"&gt;Best Documentary Short Subject&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feat-meta-item"&gt;&lt;span class="label"&gt;Co-Producer&lt;/span&gt;&lt;span class="value"&gt;The New York Times&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;From a quiet, intimate portrait to an Oscar nomination — Walk Run Cha-Cha's campaign is a case study in precision timing, editorial press strategy, and the art of making voters feel.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:juliana@sakaepr.com" class="btn btn-primary"&gt;Discuss Your Campaign&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- ABOUT --&gt;</p>
-<p class="p1">&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="about-inner max-w reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="about-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="section-label"&gt;About the Agency&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;Ten years&lt;br/&gt;at the &lt;em&gt;intersection&lt;/em&gt;&lt;br/&gt;of Brazilian cinema&lt;br/&gt;and the global stage.&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-stat-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="about-stat"&gt;&lt;div class="num"&gt;11&lt;/div&gt;&lt;div class="lbl"&gt;Academy Awards Campaigns&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="about-stat"&gt;&lt;div class="num"&gt;5&lt;/div&gt;&lt;div class="lbl"&gt;Cities We Are Present Every Year · Los Angeles, New York, São Paulo, Cannes, Berlin&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="about-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Sakae PR (USA) and Sakae Cultural (Brazil) was founded by Juliana Sakae — a publicist-producer with a career built at the intersection of curatorial instinct and strategic precision. Her expertise was forged managing the competition leading to the prestigious IDA Awards and creating the Bravo FYC within the Bravo Film Festival.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;We operate across the full spectrum of the prestige cinema circuit: awards campaigning, international festival positioning, press strategy, and educational initiatives through our Masterclass program. Our approach is singular: we treat each film as a cultural object with a story to tell beyond the screen.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;We work exclusively with projects we believe in — which is why our record speaks for itself.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-clients-strip"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Walk Run Cha Cha&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;The Edge of Democracy&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Babenco – Tell Me When I Die&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Deserto Particular&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Out of Breath&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;The Falling Sky&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;America&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Alice&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="client-tag"&gt;Amarela&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- SELECTED CLIENTS --&gt;</p>
-<p class="p1">&lt;section id="projects"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="projects-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="projects-header reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="section-label"&gt;Portfolio&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="section-title"&gt;Selected &lt;em&gt;Clients&lt;/em&gt;&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="projects-grid reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#1a0a20,#0a1a2a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;Amarela&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2024&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;98th Academy Awards®&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Shortlisted · Best Live Action Short Film&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;Amarela&lt;/h4&gt;&lt;span&gt;Awards Campaign&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#0a1a10,#0a0a1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;Walk Run Cha-Cha&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2019&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;92nd Academy Awards®&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Nominated · Best Documentary Short · Netflix&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;Walk Run Cha-Cha&lt;/h4&gt;&lt;span&gt;Oscar Campaign · Netflix&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#0a0a1a,#1a0a10)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;The Falling Sky&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2024&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;International Circuit&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Aruac Filmes · Festival Positioning&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;The Falling Sky&lt;/h4&gt;&lt;span&gt;Festival Campaign · Aruac Filmes&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#1a0a0a,#0a1a1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;Deserto Particular&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2021&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;Grafo Audiovisual&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;International PR &amp; Awards Strategy&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;Deserto Particular&lt;/h4&gt;&lt;span&gt;Awards Campaign&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#0d1a0a,#1a0d1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;America&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2022&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;Muritiba Filmes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Festival &amp; Awards Strategy&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;America&lt;/h4&gt;&lt;span&gt;PR Campaign · Muritiba Filmes&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#1a1000,#0a0a1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;Babenco&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2019&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;Globo Filmes · HB Filmes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Tell Me When I Die · Awards Strategy&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;Babenco&lt;/h4&gt;&lt;span&gt;PR Strategy&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#0a0a1a,#1a0a10)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;The Falling Sky&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2024&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;International Circuit&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Aruac Filmes · Festival Positioning&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;The Falling Sky&lt;/h4&gt;&lt;span&gt;Festival Campaign · Aruac Filmes&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#1a0a0a,#0a1a1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;Deserto Particular&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2021&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;Grafo Audiovisual&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;International PR &amp; Awards Strategy&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;Deserto Particular&lt;/h4&gt;&lt;span&gt;Awards Campaign&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-poster" style="background:linear-gradient(140deg,#0d1a0a,#1a0d1a)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-title"&gt;America&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-poster-year"&gt;2022&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card-overlay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-badge"&gt;Muritiba Filmes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="fest-note"&gt;Festival &amp; Awards Strategy&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-info"&gt;&lt;h4&gt;America&lt;/h4&gt;&lt;span&gt;PR Campaign · Muritiba Filmes&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- INDUSTRY ALERT --&gt;</p>
-<p class="p1">&lt;section id="alert"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="alert-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="alert-header reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="section-label"&gt;Intelligence&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="section-title"&gt;FIQUE &lt;em&gt;ATENTO&lt;/em&gt;&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="alert-subtitle reveal"&gt;Inteligência de mercado em tempo real&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="alert-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Brazilian Panel --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="alert-panel reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;🎬 Indústria Brasileira&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="panel-refresh" onclick="fetchPanel('br')"&gt;↻ Atualizar&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-body" id="panel-br"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="skel-grid" id="skel-br"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="news-grid" id="news-br" style="display:none"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="error-state" id="error-br" style="display:none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Não foi possível carregar as notícias.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn btn-outline" onclick="fetchPanel('br')"&gt;Tentar novamente&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- World Panel --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="alert-panel reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;🌍 Global Industry&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="panel-refresh" onclick="fetchPanel('world')"&gt;↻ Atualizar&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel-body" id="panel-world"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="skel-grid" id="skel-world"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="skel-card"&gt;&lt;div class="skel skel-badge"&gt;&lt;/div&gt;&lt;div class="skel skel-title"&gt;&lt;/div&gt;&lt;div class="skel skel-title2"&gt;&lt;/div&gt;&lt;div class="skel skel-text"&gt;&lt;/div&gt;&lt;div class="skel skel-text2"&gt;&lt;/div&gt;&lt;div class="skel skel-text3"&gt;&lt;/div&gt;&lt;div class="skel skel-foot"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="news-grid" id="news-world" style="display:none"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="error-state" id="error-world" style="display:none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Could not load news at this time.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn btn-outline" onclick="fetchPanel('world')"&gt;Try again&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- MASTERCLASS --&gt;</p>
-<p class="p1">&lt;section id="masterclass"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="mc-inner max-w reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="mc-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="section-label"&gt;Education&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;The &lt;em&gt;craft&lt;/em&gt;&lt;br/&gt;behind the campaign.&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Our Masterclass program opens the strategies, relationships, and decisions that define a successful awards campaign — for filmmakers, producers, and distributors who want to navigate the international circuit with intention. Special guests: Film Critic Waldemar Dalenogare, filmmakers Ana and Helena Petta, and producer Marília Senlle. Sponsored by SPCINE.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://www.sakaepr.com/blog" target="_blank" class="btn btn-primary"&gt;Watch Masterclass&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="mc-visual"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mc-icon"&gt;◉&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mc-tagline"&gt;"The campaign begins&lt;br/&gt;in development."&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);opacity:.5"&gt;— Juliana Sakae&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- CONTACT --&gt;</p>
-<p class="p1">&lt;section id="contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="contact-inner max-w reveal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="contact-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="section-label"&gt;Contact&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;Let's position&lt;br/&gt;your &lt;em&gt;film&lt;/em&gt;.&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;We work with a select number of projects each season. If you have a film that deserves to be seen — at the right festival, at the right time, by the right people — reach out.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:juliana@sakaepr.com" class="contact-email"&gt;juliana@sakaepr.com&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="contact-locations"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="location"&gt;&lt;h4&gt;USA&lt;/h4&gt;&lt;p&gt;Sakae International LLC&lt;/p&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="location"&gt;&lt;h4&gt;Brasil&lt;/h4&gt;&lt;p&gt;Sakae Cultural LTDA&lt;/p&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="contact-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="service-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;span class="svc-num"&gt;01&lt;/span&gt;&lt;div class="svc-text"&gt;&lt;h4&gt;Awards Campaigning&lt;/h4&gt;&lt;p&gt;Oscars, IDA Awards, DOCNYC, Venice VR — full-cycle strategy from eligibility to promoting.&lt;/p&gt;&lt;/div&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;span class="svc-num"&gt;02&lt;/span&gt;&lt;div class="svc-text"&gt;&lt;h4&gt;Festival Strategy&lt;/h4&gt;&lt;p&gt;Cannes, Berlinale, Sundance, Venice — positioning and press strategy.&lt;/p&gt;&lt;/div&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;span class="svc-num"&gt;03&lt;/span&gt;&lt;div class="svc-text"&gt;&lt;h4&gt;International PR&lt;/h4&gt;&lt;p&gt;Media relations across North America, Europe, and Latin America.&lt;/p&gt;&lt;/div&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- FOOTER --&gt;</p>
-<p class="p1">&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;span class="footer-logo"&gt;SAKAE PR&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;span class="footer-copy"&gt;© 2025 Sakae PR · Sakae Cultural · All rights reserved&lt;/span&gt;</p>
-<p class="p1">&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">// ── NAV ──</p>
-<p class="p1">function toggleMenu(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('navLinks').classList.toggle('open');</p>
-<p class="p1">}</p>
-<p class="p1">document.querySelectorAll('#navLinks a').forEach(a=&gt;a.addEventListener('click',()=&gt;document.getElementById('navLinks').classList.remove('open')));</p>
-<p class="p2"><br></p>
-<p class="p1">// ── REVEAL ──</p>
-<p class="p1">const observer = new IntersectionObserver(entries=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>entries.forEach(e=&gt;{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});</p>
-<p class="p1">},{threshold:.1});</p>
-<p class="p1">document.querySelectorAll('.reveal').forEach(el=&gt;observer.observe(el));</p>
-<p class="p2"><br></p>
-<p class="p1">// ── RSS FEEDS CONFIG ──</p>
-<p class="p1">const RSS2JSON = 'https://api.rss2json.com/v1/api.json';</p>
-<p class="p1">const FEEDS = {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>br: [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://revistacinetica.com.br/nova/feed/', fonte:'Cinética' },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://revistadecinema.com.br/feed/', <span class="Apple-converted-space">    </span>fonte:'Revista de Cinema' },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://criticos.com.br/feed/',<span class="Apple-converted-space">            </span>fonte:'Críticos' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>],</p>
-<p class="p1"><span class="Apple-converted-space">  </span>world: [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://deadline.com/v/film/feed/',<span class="Apple-converted-space">              </span>fonte:'Deadline' },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://variety.com/v/film/feed/', <span class="Apple-converted-space">              </span>fonte:'Variety' },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://www.hollywoodreporter.com/c/movies/feed/',fonte:'THR' },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ url:'https://www.indiewire.com/feed/',<span class="Apple-converted-space">                </span>fonte:'IndieWire' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>]</p>
-<p class="p1">};</p>
-<p class="p2"><br></p>
-<p class="p1">// Fallback Anthropic prompts</p>
-<p class="p1">const PROMPTS = {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>br: `Busque as 6 notícias mais recentes sobre cinema brasileiro, filmes nacionais em festivais internacionais, lançamentos, premiações e críticas. Fontes: Cinética, Revista de Cinema, Críticos, Filme B, Adoro Cinema. Retorne APENAS um array JSON válido sem markdown: [{"categoria":"Festival","titulo":"...","resumo_2_linhas":"...","data":"...","fonte":"...","url":"..."}]. Categorias: Festival, Awards, Lançamento, Crítica, Mercado.`,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>world:`Search for 6 most recent prestige cinema news: Cannes, Berlinale, Venice, Sundance, awards season. Sources: Variety, Deadline, Hollywood Reporter, IndieWire. Return ONLY a valid JSON array, no markdown: [{"categoria":"Festival","titulo":"...","resumo_2_linhas":"...","data":"...","fonte":"...","url":"..."}]. Categories: Festival, Awards, Release, Review, Industry.`</p>
-<p class="p1">};</p>
-<p class="p2"><br></p>
-<p class="p1">function parseDate(d){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!d) return '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const dt = new Date(d);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(isNaN(dt)) return d;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function stripHtml(h){ return h ? h.replace(/&lt;[^&gt;]*&gt;/g,'').replace(/&amp;[a-z]+;/g,' ').trim().slice(0,180) : ''; }</p>
-<p class="p2"><br></p>
-<p class="p1">function getCatFromTags(tags=[], title=''){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const t = (tags.join(' ')+' '+title).toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(/festival|cannes|berlin|venice|sundance|tribeca|rotterdam/.test(t)) return 'Festival';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(/oscar|award|premi|indica|shortlist|nomina/.test(t)) return 'Awards';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(/lança|estreia|release|estreou/.test(t)) return 'Lançamento';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(/crítica|review|resenha|análise/.test(t)) return 'Crítica';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return 'Mercado';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// Try all RSS feeds for a panel, return merged items (up to 6)</p>
-<p class="p1">async function fetchRSS(panel){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const feeds = FEEDS[panel];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const allItems = [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>await Promise.allSettled(feeds.map(async ({url, fonte})=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const res = await fetch(`${RSS2JSON}?rss_url=${encodeURIComponent(url)}&amp;count=4`);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if(!res.ok) throw new Error(`HTTP ${res.status}`);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if(data.status !== 'ok' || !data.items?.length) throw new Error('No items');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>data.items.forEach(item=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">        </span>allItems.push({</p>
-<p class="p1"><span class="Apple-converted-space">          </span>categoria: getCatFromTags(item.categories||[], item.title||''),</p>
-<p class="p1"><span class="Apple-converted-space">          </span>titulo: item.title||'—',</p>
-<p class="p1"><span class="Apple-converted-space">          </span>resumo_2_linhas: stripHtml(item.description||item.content||''),</p>
-<p class="p1"><span class="Apple-converted-space">          </span>data: parseDate(item.pubDate),</p>
-<p class="p1"><span class="Apple-converted-space">          </span>fonte: fonte,</p>
-<p class="p1"><span class="Apple-converted-space">          </span>url: item.link||null</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}catch(e){ console.warn(`RSS failed (${fonte}):`, e.message); }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Sort by date desc, deduplicate by title, take 6</p>
-<p class="p1"><span class="Apple-converted-space">  </span>allItems.sort((a,b)=&gt; new Date(b.data)-new Date(a.data));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const seen = new Set();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return allItems.filter(i=&gt;{ if(seen.has(i.titulo)) return false; seen.add(i.titulo); return true; }).slice(0,6);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// Fallback: Anthropic via Netlify proxy (no key exposed)</p>
-<p class="p1">async function fetchAnthropicFallback(panel){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>// In Claude.ai preview, call Anthropic directly; on Netlify, use /api/anthropic proxy</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const isNetlify = !window.location.hostname.includes('claude.ai') &amp;&amp; window.location.hostname !== 'localhost';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const endpoint = isNetlify ? '/api/anthropic' : 'https://api.anthropic.com/v1/messages';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const extraHeaders = isNetlify ? {} : {'anthropic-dangerous-direct-browser-access':'true'};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const res = await fetch(endpoint,{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>method:'POST',</p>
-<p class="p1"><span class="Apple-converted-space">    </span>headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01',...extraHeaders},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,tools:[{"type":"web_search_20250305","name":"web_search"}],messages:[{role:'user',content:PROMPTS[panel]}]})</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!res.ok) throw new Error(`HTTP ${res.status}`);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const rawText = data.content.filter(b=&gt;b.type==='text').map(b=&gt;b.text).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const stripped = rawText.replace(/```(?:json)?\s*/gi,'').replace(/```/g,'').trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const arrStart=stripped.indexOf('['), arrEnd=stripped.lastIndexOf(']');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(arrStart===-1||arrEnd===-1) throw new Error('No array');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const items = JSON.parse(stripped.slice(arrStart,arrEnd+1));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!Array.isArray(items)||!items.length) throw new Error('Empty');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return items;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderItems(items, newsEl){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>newsEl.innerHTML='';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>newsEl.style.display='grid';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>items.forEach(item=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const catClass=getCatClass(item.categoria||'default');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const card=document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>card.className='news-card';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const url=item.url&amp;&amp;item.url.startsWith('http')?item.url:null;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>card.innerHTML=`</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="cat-badge cat-${catClass}"&gt;${item.categoria||'News'}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h4&gt;${item.titulo||'—'}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;${item.resumo_2_linhas||''}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="news-card-footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="news-date"&gt;${item.data||''}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="news-source"&gt;${url?`&lt;a href="${url}" target="_blank" rel="noopener"&gt;${item.fonte||'Fonte'}&lt;/a&gt;`:`&lt;span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);opacity:.5"&gt;${item.fonte||''}&lt;/span&gt;`}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>newsEl.appendChild(card);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">async function fetchPanel(panel){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const skelEl=document.getElementById(`skel-${panel}`);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const newsEl=document.getElementById(`news-${panel}`);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const errEl=document.getElementById(`error-${panel}`);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>skelEl.style.display='grid'; newsEl.style.display='none'; errEl.style.display='none';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>newsEl.innerHTML='';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Try RSS first</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let items = await fetchRSS(panel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(items.length &gt;= 2){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>skelEl.style.display='none';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>renderItems(items, newsEl);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Fallback to Anthropic if RSS got &lt; 2 items</p>
-<p class="p1"><span class="Apple-converted-space">    </span>console.log(`RSS returned only ${items.length} items for ${panel}, trying Anthropic fallback...`);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>items = await fetchAnthropicFallback(panel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>skelEl.style.display='none';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>renderItems(items, newsEl);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>console.error(e);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>skelEl.style.display='none';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>errEl.style.display='flex';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function getCatClass(cat){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const c=(cat||'').toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(c.includes('festival')) return 'festival';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(c.includes('award')||c.includes('premia')) return 'awards';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(c.includes('lança')||c.includes('release')||c.includes('estreia')) return 'lançamento';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(c.includes('critic')||c.includes('review')) return 'crítica';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return 'default';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// Fire both panels on load</p>
-<p class="p1">window.addEventListener('DOMContentLoaded',()=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>fetchPanel('br');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>fetchPanel('world');</p>
-<p class="p1">});</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">SAKAE PR<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#featured">Clients</a></li>
+    <li><a href="#alert">Industry Alert</a></li>
+    <li><a href="#masterclass">Masterclass</a></li>
+    <li><a href="#contact" class="btn btn-primary" style="padding:.55rem 1.4rem">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div style="position:relative;z-index:1">
+    <span class="hero-eyebrow">Awards Strategy · Festival Positioning · International PR</span>
+    <h1 class="hero-title">The art of<br/><em>being seen</em><br/>at the right moment.</h1>
+    <p class="hero-subtitle">Sakae PR navigates the most competitive circuits in world cinema — from Sundance to Cannes, from shortlists to winners' podiums.</p>
+    <div class="hero-cta">
+      <a href="#featured" class="btn btn-primary">Current Campaign</a>
+      <a href="#contact" class="btn btn-outline">Work With Us</a>
+    </div>
+  </div>
+  <div class="scroll-line"><span>Scroll</span></div>
+</section>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="featured-inner">
+    <div class="featured-poster-wrap reveal">
+      <div class="poster-placeholder">
+        <div class="poster-title">Walk Run Cha-Cha</div>
+        <div class="poster-dir">Laura Nix</div>
+        <div style="width:60%;height:1px;background:var(--border2);margin:1rem 0"></div>
+        <div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver)">Netflix</div>
+      </div>
+      <div class="badge-oscar">92nd Academy Awards® Nominee</div>
+    </div>
+    <div class="featured-text reveal">
+      <span class="section-label">Featured Campaign</span>
+      <h2>WALK RUN<br/>CHA-CHA<br/><em>nominated for the 92nd Oscars®</em></h2>
+      <div class="feat-meta">
+        <div class="feat-meta-item"><span class="label">Director</span><span class="value">Laura Nix</span></div>
+        <div class="feat-meta-item"><span class="label">Category</span><span class="value">Best Documentary Short Subject</span></div>
+        <div class="feat-meta-item"><span class="label">Co-Producer</span><span class="value">The New York Times</span></div>
+      </div>
+      <p>From a quiet, intimate portrait to an Oscar nomination — Walk Run Cha-Cha's campaign is a case study in precision timing, editorial press strategy, and the art of making voters feel.</p>
+      <a href="mailto:juliana@sakaepr.com" class="btn btn-primary">Discuss Your Campaign</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner max-w reveal">
+    <div class="about-left">
+      <span class="section-label">About the Agency</span>
+      <h2 class="section-title">Ten years<br/>at the <em>intersection</em><br/>of Brazilian cinema<br/>and the global stage.</h2>
+      <div class="about-stat-list">
+        <div class="about-stat"><div class="num">11</div><div class="lbl">Academy Awards Campaigns</div></div>
+        <div class="about-stat"><div class="num">5</div><div class="lbl">Cities We Are Present Every Year · Los Angeles, New York, São Paulo, Cannes, Berlin</div></div>
+      </div>
+    </div>
+    <div class="about-right">
+      <p>Sakae PR (USA) and Sakae Cultural (Brazil) was founded by Juliana Sakae — a publicist-producer with a career built at the intersection of curatorial instinct and strategic precision. Her expertise was forged managing the competition leading to the prestigious IDA Awards and creating the Bravo FYC within the Bravo Film Festival.</p>
+      <p>We operate across the full spectrum of the prestige cinema circuit: awards campaigning, international festival positioning, press strategy, and educational initiatives through our Masterclass program. Our approach is singular: we treat each film as a cultural object with a story to tell beyond the screen.</p>
+      <p>We work exclusively with projects we believe in — which is why our record speaks for itself.</p>
+      <div class="about-clients-strip">
+        <span class="client-tag">Walk Run Cha Cha</span>
+        <span class="client-tag">The Edge of Democracy</span>
+        <span class="client-tag">Babenco – Tell Me When I Die</span>
+        <span class="client-tag">Deserto Particular</span>
+        <span class="client-tag">Out of Breath</span>
+        <span class="client-tag">The Falling Sky</span>
+        <span class="client-tag">America</span>
+        <span class="client-tag">Alice</span>
+        <span class="client-tag">Amarela</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED CLIENTS -->
+<section id="projects">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div>
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Selected <em>Clients</em></h2>
+      </div>
+    </div>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#1a0a20,#0a1a2a)">
+          <div class="card-poster-title">Amarela</div>
+          <div class="card-poster-year">2024</div>
+          <div class="card-overlay">
+            <div class="fest-badge">98th Academy Awards®</div>
+            <div class="fest-note">Shortlisted · Best Live Action Short Film</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>Amarela</h4><span>Awards Campaign</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#0a1a10,#0a0a1a)">
+          <div class="card-poster-title">Walk Run Cha-Cha</div>
+          <div class="card-poster-year">2019</div>
+          <div class="card-overlay">
+            <div class="fest-badge">92nd Academy Awards®</div>
+            <div class="fest-note">Nominated · Best Documentary Short · Netflix</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>Walk Run Cha-Cha</h4><span>Oscar Campaign · Netflix</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#0a0a1a,#1a0a10)">
+          <div class="card-poster-title">The Falling Sky</div>
+          <div class="card-poster-year">2024</div>
+          <div class="card-overlay">
+            <div class="fest-badge">International Circuit</div>
+            <div class="fest-note">Aruac Filmes · Festival Positioning</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>The Falling Sky</h4><span>Festival Campaign · Aruac Filmes</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#1a0a0a,#0a1a1a)">
+          <div class="card-poster-title">Deserto Particular</div>
+          <div class="card-poster-year">2021</div>
+          <div class="card-overlay">
+            <div class="fest-badge">Grafo Audiovisual</div>
+            <div class="fest-note">International PR & Awards Strategy</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>Deserto Particular</h4><span>Awards Campaign</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#0d1a0a,#1a0d1a)">
+          <div class="card-poster-title">America</div>
+          <div class="card-poster-year">2022</div>
+          <div class="card-overlay">
+            <div class="fest-badge">Muritiba Filmes</div>
+            <div class="fest-note">Festival & Awards Strategy</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>America</h4><span>PR Campaign · Muritiba Filmes</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#1a1000,#0a0a1a)">
+          <div class="card-poster-title">Babenco</div>
+          <div class="card-poster-year">2019</div>
+          <div class="card-overlay">
+            <div class="fest-badge">Globo Filmes · HB Filmes</div>
+            <div class="fest-note">Tell Me When I Die · Awards Strategy</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>Babenco</h4><span>PR Strategy</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#0a0a1a,#1a0a10)">
+          <div class="card-poster-title">The Falling Sky</div>
+          <div class="card-poster-year">2024</div>
+          <div class="card-overlay">
+            <div class="fest-badge">International Circuit</div>
+            <div class="fest-note">Aruac Filmes · Festival Positioning</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>The Falling Sky</h4><span>Festival Campaign · Aruac Filmes</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#1a0a0a,#0a1a1a)">
+          <div class="card-poster-title">Deserto Particular</div>
+          <div class="card-poster-year">2021</div>
+          <div class="card-overlay">
+            <div class="fest-badge">Grafo Audiovisual</div>
+            <div class="fest-note">International PR & Awards Strategy</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>Deserto Particular</h4><span>Awards Campaign</span></div>
+      </div>
+      <div class="project-card">
+        <div class="card-poster" style="background:linear-gradient(140deg,#0d1a0a,#1a0d1a)">
+          <div class="card-poster-title">America</div>
+          <div class="card-poster-year">2022</div>
+          <div class="card-overlay">
+            <div class="fest-badge">Muritiba Filmes</div>
+            <div class="fest-note">Festival & Awards Strategy</div>
+          </div>
+        </div>
+        <div class="card-info"><h4>America</h4><span>PR Campaign · Muritiba Filmes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY ALERT -->
+<section id="alert">
+  <div class="alert-inner">
+    <div class="alert-header reveal">
+      <div>
+        <span class="section-label">Intelligence</span>
+        <h2 class="section-title">FIQUE <em>ATENTO</em></h2>
+      </div>
+    </div>
+    <p class="alert-subtitle reveal">Inteligência de mercado em tempo real</p>
+    <div class="alert-grid">
+      <!-- Brazilian Panel -->
+      <div class="alert-panel reveal">
+        <div class="panel-header">
+          <h3>🎬 Indústria Brasileira</h3>
+          <button class="panel-refresh" onclick="fetchPanel('br')">↻ Atualizar</button>
+        </div>
+        <div class="panel-body" id="panel-br">
+          <div class="skel-grid" id="skel-br">
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+          </div>
+          <div class="news-grid" id="news-br" style="display:none"></div>
+          <div class="error-state" id="error-br" style="display:none">
+            <p>Não foi possível carregar as notícias.</p>
+            <button class="btn btn-outline" onclick="fetchPanel('br')">Tentar novamente</button>
+          </div>
+        </div>
+      </div>
+      <!-- World Panel -->
+      <div class="alert-panel reveal">
+        <div class="panel-header">
+          <h3>🌍 Global Industry</h3>
+          <button class="panel-refresh" onclick="fetchPanel('world')">↻ Atualizar</button>
+        </div>
+        <div class="panel-body" id="panel-world">
+          <div class="skel-grid" id="skel-world">
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+            <div class="skel-card"><div class="skel skel-badge"></div><div class="skel skel-title"></div><div class="skel skel-title2"></div><div class="skel skel-text"></div><div class="skel skel-text2"></div><div class="skel skel-text3"></div><div class="skel skel-foot"></div></div>
+          </div>
+          <div class="news-grid" id="news-world" style="display:none"></div>
+          <div class="error-state" id="error-world" style="display:none">
+            <p>Could not load news at this time.</p>
+            <button class="btn btn-outline" onclick="fetchPanel('world')">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERCLASS -->
+<section id="masterclass">
+  <div class="mc-inner max-w reveal">
+    <div class="mc-text">
+      <span class="section-label">Education</span>
+      <h2 class="section-title">The <em>craft</em><br/>behind the campaign.</h2>
+      <p>Our Masterclass program opens the strategies, relationships, and decisions that define a successful awards campaign — for filmmakers, producers, and distributors who want to navigate the international circuit with intention. Special guests: Film Critic Waldemar Dalenogare, filmmakers Ana and Helena Petta, and producer Marília Senlle. Sponsored by SPCINE.</p>
+      <a href="https://www.sakaepr.com/blog" target="_blank" class="btn btn-primary">Watch Masterclass</a>
+    </div>
+    <div class="mc-visual">
+      <div class="mc-icon">◉</div>
+      <div class="mc-tagline">"The campaign begins<br/>in development."</div>
+      <div style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);opacity:.5">— Juliana Sakae</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner max-w reveal">
+    <div class="contact-left">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Let's position<br/>your <em>film</em>.</h2>
+      <p>We work with a select number of projects each season. If you have a film that deserves to be seen — at the right festival, at the right time, by the right people — reach out.</p>
+      <a href="mailto:juliana@sakaepr.com" class="contact-email">juliana@sakaepr.com</a>
+      <div class="contact-locations">
+        <div class="location"><h4>USA</h4><p>Sakae International LLC</p></div>
+        <div class="location"><h4>Brasil</h4><p>Sakae Cultural LTDA</p></div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <ul class="service-list">
+        <li><span class="svc-num">01</span><div class="svc-text"><h4>Awards Campaigning</h4><p>Oscars, IDA Awards, DOCNYC, Venice VR — full-cycle strategy from eligibility to promoting.</p></div></li>
+        <li><span class="svc-num">02</span><div class="svc-text"><h4>Festival Strategy</h4><p>Cannes, Berlinale, Sundance, Venice — positioning and press strategy.</p></div></li>
+        <li><span class="svc-num">03</span><div class="svc-text"><h4>International PR</h4><p>Media relations across North America, Europe, and Latin America.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">SAKAE PR</span>
+  <span class="footer-copy">© 2025 Sakae PR · Sakae Cultural · All rights reserved</span>
+</footer>
+
+<script>
+// ── NAV ──
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// ── REVEAL ──
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ── RSS FEEDS CONFIG ──
+const RSS2JSON = 'https://api.rss2json.com/v1/api.json';
+const FEEDS = {
+  br: [
+    { url:'https://revistacinetica.com.br/nova/feed/', fonte:'Cinética' },
+    { url:'https://revistadecinema.com.br/feed/',     fonte:'Revista de Cinema' },
+    { url:'https://criticos.com.br/feed/',            fonte:'Críticos' },
+  ],
+  world: [
+    { url:'https://deadline.com/v/film/feed/',              fonte:'Deadline' },
+    { url:'https://variety.com/v/film/feed/',               fonte:'Variety' },
+    { url:'https://www.hollywoodreporter.com/c/movies/feed/',fonte:'THR' },
+    { url:'https://www.indiewire.com/feed/',                fonte:'IndieWire' },
+  ]
+};
+
+// Fallback Anthropic prompts
+const PROMPTS = {
+  br: `Busque as 6 notícias mais recentes sobre cinema brasileiro, filmes nacionais em festivais internacionais, lançamentos, premiações e críticas. Fontes: Cinética, Revista de Cinema, Críticos, Filme B, Adoro Cinema. Retorne APENAS um array JSON válido sem markdown: [{"categoria":"Festival","titulo":"...","resumo_2_linhas":"...","data":"...","fonte":"...","url":"..."}]. Categorias: Festival, Awards, Lançamento, Crítica, Mercado.`,
+  world:`Search for 6 most recent prestige cinema news: Cannes, Berlinale, Venice, Sundance, awards season. Sources: Variety, Deadline, Hollywood Reporter, IndieWire. Return ONLY a valid JSON array, no markdown: [{"categoria":"Festival","titulo":"...","resumo_2_linhas":"...","data":"...","fonte":"...","url":"..."}]. Categories: Festival, Awards, Release, Review, Industry.`
+};
+
+function parseDate(d){
+  if(!d) return '';
+  const dt = new Date(d);
+  if(isNaN(dt)) return d;
+  return dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});
+}
+
+function stripHtml(h){ return h ? h.replace(/<[^>]*>/g,'').replace(/&[a-z]+;/g,' ').trim().slice(0,180) : ''; }
+
+function getCatFromTags(tags=[], title=''){
+  const t = (tags.join(' ')+' '+title).toLowerCase();
+  if(/festival|cannes|berlin|venice|sundance|tribeca|rotterdam/.test(t)) return 'Festival';
+  if(/oscar|award|premi|indica|shortlist|nomina/.test(t)) return 'Awards';
+  if(/lança|estreia|release|estreou/.test(t)) return 'Lançamento';
+  if(/crítica|review|resenha|análise/.test(t)) return 'Crítica';
+  return 'Mercado';
+}
+
+// Try all RSS feeds for a panel, return merged items (up to 6)
+async function fetchRSS(panel){
+  const feeds = FEEDS[panel];
+  const allItems = [];
+  await Promise.allSettled(feeds.map(async ({url, fonte})=>{
+    try{
+      const res = await fetch(`${RSS2JSON}?rss_url=${encodeURIComponent(url)}&count=4`);
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if(data.status !== 'ok' || !data.items?.length) throw new Error('No items');
+      data.items.forEach(item=>{
+        allItems.push({
+          categoria: getCatFromTags(item.categories||[], item.title||''),
+          titulo: item.title||'—',
+          resumo_2_linhas: stripHtml(item.description||item.content||''),
+          data: parseDate(item.pubDate),
+          fonte: fonte,
+          url: item.link||null
+        });
+      });
+    }catch(e){ console.warn(`RSS failed (${fonte}):`, e.message); }
+  }));
+  // Sort by date desc, deduplicate by title, take 6
+  allItems.sort((a,b)=> new Date(b.data)-new Date(a.data));
+  const seen = new Set();
+  return allItems.filter(i=>{ if(seen.has(i.titulo)) return false; seen.add(i.titulo); return true; }).slice(0,6);
+}
+
+// Fallback: Anthropic via Netlify proxy (no key exposed)
+async function fetchAnthropicFallback(panel){
+  // In Claude.ai preview, call Anthropic directly; on Netlify, use /api/anthropic proxy
+  const isNetlify = !window.location.hostname.includes('claude.ai') && window.location.hostname !== 'localhost';
+  const endpoint = isNetlify ? '/api/anthropic' : 'https://api.anthropic.com/v1/messages';
+  const extraHeaders = isNetlify ? {} : {'anthropic-dangerous-direct-browser-access':'true'};
+
+  const res = await fetch(endpoint,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01',...extraHeaders},
+    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,tools:[{"type":"web_search_20250305","name":"web_search"}],messages:[{role:'user',content:PROMPTS[panel]}]})
+  });
+  if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  const rawText = data.content.filter(b=>b.type==='text').map(b=>b.text).join('');
+  const stripped = rawText.replace(/```(?:json)?\s*/gi,'').replace(/```/g,'').trim();
+  const arrStart=stripped.indexOf('['), arrEnd=stripped.lastIndexOf(']');
+  if(arrStart===-1||arrEnd===-1) throw new Error('No array');
+  const items = JSON.parse(stripped.slice(arrStart,arrEnd+1));
+  if(!Array.isArray(items)||!items.length) throw new Error('Empty');
+  return items;
+}
+
+function renderItems(items, newsEl){
+  newsEl.innerHTML='';
+  newsEl.style.display='grid';
+  items.forEach(item=>{
+    const catClass=getCatClass(item.categoria||'default');
+    const card=document.createElement('div');
+    card.className='news-card';
+    const url=item.url&&item.url.startsWith('http')?item.url:null;
+    card.innerHTML=`
+      <span class="cat-badge cat-${catClass}">${item.categoria||'News'}</span>
+      <h4>${item.titulo||'—'}</h4>
+      <p>${item.resumo_2_linhas||''}</p>
+      <div class="news-card-footer">
+        <span class="news-date">${item.data||''}</span>
+        <span class="news-source">${url?`<a href="${url}" target="_blank" rel="noopener">${item.fonte||'Fonte'}</a>`:`<span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);opacity:.5">${item.fonte||''}</span>`}</span>
+      </div>`;
+    newsEl.appendChild(card);
+  });
+}
+
+async function fetchPanel(panel){
+  const skelEl=document.getElementById(`skel-${panel}`);
+  const newsEl=document.getElementById(`news-${panel}`);
+  const errEl=document.getElementById(`error-${panel}`);
+  skelEl.style.display='grid'; newsEl.style.display='none'; errEl.style.display='none';
+  newsEl.innerHTML='';
+  try{
+    // Try RSS first
+    let items = await fetchRSS(panel);
+    if(items.length >= 2){
+      skelEl.style.display='none';
+      renderItems(items, newsEl);
+      return;
+    }
+    // Fallback to Anthropic if RSS got < 2 items
+    console.log(`RSS returned only ${items.length} items for ${panel}, trying Anthropic fallback...`);
+    items = await fetchAnthropicFallback(panel);
+    skelEl.style.display='none';
+    renderItems(items, newsEl);
+  }catch(e){
+    console.error(e);
+    skelEl.style.display='none';
+    errEl.style.display='flex';
+  }
+}
+
+function getCatClass(cat){
+  const c=(cat||'').toLowerCase();
+  if(c.includes('festival')) return 'festival';
+  if(c.includes('award')||c.includes('premia')) return 'awards';
+  if(c.includes('lança')||c.includes('release')||c.includes('estreia')) return 'lançamento';
+  if(c.includes('critic')||c.includes('review')) return 'crítica';
+  return 'default';
+}
+
+// Fire both panels on load
+window.addEventListener('DOMContentLoaded',()=>{
+  fetchPanel('br');
+  fetchPanel('world');
+});
+</script>
 </body>
 </html>
