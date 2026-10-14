@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;letter-spacing:.35em;font-weight:300;color:#e8e2d5;text-decoration:none}
 .nav-logo span{color:#c9a96e}
 .nav-tag{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#8a8a9a}
-@media(max-width:768px){nav{padding:1rem 1.5rem}}
+@media(max-width:768px){nav{padding:1rem 1.5rem}.nav-tag{display:none}}
 
 /* HERO */
 #hero{padding:8rem 4rem 4rem;border-bottom:1px solid #1e1e2a;background:radial-gradient(ellipse 80% 60% at 50% 0%,#1a1020 0%,#060608 70%)}
@@ -41,8 +41,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title em{font-style:italic;color:#c9a96e}
 .hero-sub{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#8a8a9a;margin-bottom:2rem}
 .hero-desc{color:#ccc9c0;font-size:.93rem;line-height:1.85;max-width:70ch;margin-bottom:2rem}
-.confidential{display:inline-flex;align-items:flex-start;gap:.8rem;background:rgba(232,126,126,.07);border:1px solid rgba(232,126,126,.2);padding:1rem 1.3rem;margin-top:.5rem}
-.confidential-icon{color:#e87e7e;font-size:.8rem;flex-shrink:0;margin-top:.1rem}
+.confidential{display:flex;align-items:flex-start;gap:.8rem;background:rgba(232,126,126,.07);border:1px solid rgba(232,126,126,.2);padding:1rem 1.3rem;margin-top:.5rem;max-width:70ch}
 .confidential p{font-size:.78rem;color:#e87e7e;line-height:1.6}
 
 /* SECTION */
@@ -51,7 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @media(max-width:768px){.section{padding:3rem 1.5rem}}
 .section-inner{max-width:1100px;margin:0 auto}
 .section-eyebrow{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:#c9a96e;display:block;margin-bottom:.8rem}
-.section-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;line-height:1.2;margin-bottom:.5rem;color:#e8e2d5}
+.section-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:300;line-height:1.2;margin-bottom:.5rem;color:#e8e2d5}
 .section-desc{color:#ccc9c0;font-size:.88rem;line-height:1.85;max-width:72ch;margin-bottom:2.5rem}
 
 /* RULES */
@@ -65,16 +64,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .rules-box.yes .rules-heading{color:#7ee89a;border-color:rgba(126,232,154,.15)}
 .rules-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
 .rules-list li{font-size:.83rem;color:#ccc9c0;line-height:1.6;display:flex;gap:.7rem;align-items:flex-start}
-.rules-list li::before{flex-shrink:0;margin-top:.1rem;font-size:.7rem}
+.rules-list li::before{flex-shrink:0;margin-top:.05rem;font-size:.7rem}
 .rules-box.no .rules-list li::before{content:'✕';color:#e87e7e}
 .rules-box.yes .rules-list li::before{content:'✓';color:#7ee89a}
-.rules-list ul{margin-top:.4rem;margin-left:1rem;display:flex;flex-direction:column;gap:.4rem;list-style:none}
+.rules-list ul{margin-top:.4rem;margin-left:1.2rem;display:flex;flex-direction:column;gap:.4rem;list-style:none}
 .rules-list ul li{font-size:.8rem}
 .rules-list ul li::before{content:'·';color:#8a8a9a}
 
 /* GALLERY */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-.gallery-item{background:#13131a;border:1px solid #1e1e2a;overflow:hidden;cursor:pointer;transition:border-color .25s;position:relative}
+.gallery-item{background:#13131a;border:1px solid #1e1e2a;overflow:hidden;cursor:pointer;transition:border-color .25s}
 .gallery-item:hover{border-color:#c9a96e}
 .gallery-item img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;transition:transform .3s}
 .gallery-item:hover img{transform:scale(1.03)}
@@ -140,13 +139,12 @@ footer{background:#0d0d12;border-top:1px solid #1e1e2a;padding:2rem 4rem;display
     <div class="hero-sub">Reference Archive of Awards Campaigns Graphic Materials</div>
     <p class="hero-desc">This page displays examples of graphic materials produced for past Academy Awards campaigns: invitations, screening notices, trade ads and other For Your Consideration assets. It is a working reference for designers, publicists and producers. Use it to check what has already been approved, how other campaigns solved layout and hierarchy problems, and what the Academy actually accepts — which is often narrower than what looks good.</p>
     <div class="confidential">
-      <div class="confidential-icon">⚠</div>
       <p><strong>CONFIDENTIAL.</strong> Everything on this page is for internal use only. Do not share, forward, screenshot or reproduce any content outside the team without written authorization.</p>
     </div>
   </div>
 </section>
 
-<!-- AMPAS INVITES -->
+<!-- CAT 01: AMPAS INVITES -->
 <div class="section dark">
   <div class="section-inner">
     <span class="section-eyebrow reveal">Category 01</span>
@@ -155,7 +153,7 @@ footer{background:#0d0d12;border-top:1px solid #1e1e2a;padding:2rem 4rem;display
 
     <div class="rules-wrap reveal">
       <div class="rules-box no">
-        <div class="rules-heading">✕ &nbsp; What is NOT ALLOWED</div>
+        <div class="rules-heading">✕ &nbsp;What is NOT ALLOWED</div>
         <ul class="rules-list">
           <li>Review quotes</li>
           <li>Laurels or awards</li>
@@ -166,7 +164,7 @@ footer{background:#0d0d12;border-top:1px solid #1e1e2a;padding:2rem 4rem;display
         </ul>
       </div>
       <div class="rules-box yes">
-        <div class="rules-heading">✓ &nbsp; What is ALLOWED</div>
+        <div class="rules-heading">✓ &nbsp;What is ALLOWED</div>
         <ul class="rules-list">
           <li>For Your Consideration + Category the film is competing</li>
           <li>Clear and unembellished synopsis, up to 300 characters including spaces</li>
@@ -183,9 +181,35 @@ footer{background:#0d0d12;border-top:1px solid #1e1e2a;padding:2rem 4rem;display
       </div>
     </div>
 
-    <div class="gallery reveal" id="gallery-hazmat">
-      <!-- items injected by JS -->
+    <div class="gallery reveal" id="gallery-0"></div>
+  </div>
+</div>
+
+<!-- CAT 02: NEWSLETTERS -->
+<div class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Category 02</span>
+    <h2 class="section-title reveal">Examples of Newsletters<br/>(or "e-blasts")</h2>
+    <p class="section-desc reveal">Film institutions or industry publications usually have a large database of subscribers. We can either ask, for free, institutions with which the filmmaker has a relationship, or pay publications such as Film Independent, Deadline, Variety and others to send to their subscribers. They usually offer two formats: a solo e-blast, where the entire email is about the film, or a newsletter inclusion, where the film appears alongside other content. The intention, format and rules of newsletters are different from the AMPAS e-blasts — we can truly embellish them, using images and laurels, always following the rules and regulations.</p>
+
+    <div class="rules-wrap reveal">
+      <div class="rules-box no">
+        <div class="rules-heading">✕ &nbsp;What is NOT ALLOWED</div>
+        <ul class="rules-list">
+          <li>Mentioning the "Academy Screening Room" (ASR) anywhere in the text or artwork</li>
+          <li>Using Oscar statuette, Academy logos, or Oscars logos</li>
+        </ul>
+      </div>
+      <div class="rules-box yes">
+        <div class="rules-heading">✓ &nbsp;What is ALLOWED</div>
+        <ul class="rules-list">
+          <li>Partnering with film organizations or industry publications to promote the film's journey, screenings, or Q&amp;As to their members and subscribers</li>
+          <li>Rich artwork with images, photos, key art, review quotes, festival laurels, and external links in the newsletter layout</li>
+        </ul>
+      </div>
     </div>
+
+    <div class="gallery reveal" id="gallery-1"></div>
   </div>
 </div>
 
@@ -213,45 +237,59 @@ function checkPwd(){
 }
 document.getElementById('pwd').addEventListener('keydown', e=>{ if(e.key==='Enter') checkPwd(); });
 
-// ── GALLERY ──
-const hazmatFiles = [
-  'ampaseblast-76days.jpeg',
-  'ampaseblast-arratch.png',
-  'ampaseblast-assassins.png',
-  'ampaseblast-borat.jpeg',
-  'ampaseblast-boysstate.jpeg',
-  'ampaseblast-endtomorrowtheentireworld.png',
-  'ampaseblast-minari.jpeg',
-  'ampaseblast-ontherocks.jpeg',
-  'ampaseblast-privatedesert.png',
-  'ampaseblast-thehumantrial.jpg',
-  'Ampaseblast-walkrunchacha.jpeg'
+// ── GALLERIES DATA ──
+const galleries = [
+  {
+    id: 'gallery-0',
+    files: [
+      'ampaseblast-76days.jpeg',
+      'ampaseblast-arratch.png',
+      'ampaseblast-assassins.png',
+      'ampaseblast-borat.jpeg',
+      'ampaseblast-boysstate.jpeg',
+      'ampaseblast-endtomorrowtheentireworld.png',
+      'ampaseblast-minari.jpeg',
+      'ampaseblast-ontherocks.jpeg',
+      'ampaseblast-privatedesert.png',
+      'ampaseblast-thehumantrial.jpg',
+      'Ampaseblast-walkrunchacha.jpeg'
+    ]
+  },
+  {
+    id: 'gallery-1',
+    files: [
+      'newsletter_amarela_filmindependent.png',
+      'newsletter_wicked.png',
+      'newsletter_millions.jpg',
+      'newsletter_ranger.jpg',
+      'newsletter_porcelain.jpg',
+      'newsletter_zurawski.jpg',
+      'newsletter_mars.jpg'
+    ]
+  }
 ];
 
-function makeLabel(filename){
-  return filename
-    .replace(/\.[^.]+$/, '')
-    .replace(/^ampaseblast-/i, '')
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/-/g, ' ');
+function makeLabel(f){
+  return f.replace(/\.[^.]+$/,'').replace(/^(ampaseblast-|newsletter_)/i,'').replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[-_]/g,' ');
 }
 
-const gallery = document.getElementById('gallery-hazmat');
-hazmatFiles.forEach((file, i) => {
-  const item = document.createElement('div');
-  item.className = 'gallery-item';
-  item.innerHTML = `
-    <img src="${file}" alt="${makeLabel(file)}" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"/>
-    <div class="gallery-item-label">${makeLabel(file)}</div>
-  `;
-  item.addEventListener('click', () => openLB(i));
-  gallery.appendChild(item);
+// Build galleries
+galleries.forEach((g, gi) => {
+  const el = document.getElementById(g.id);
+  g.files.forEach((file, fi) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.innerHTML = `<img src="${file}" alt="${makeLabel(file)}" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"/><div class="gallery-item-label">${makeLabel(file)}</div>`;
+    item.addEventListener('click', () => openLB(gi, fi));
+    el.appendChild(item);
+  });
 });
 
 // ── LIGHTBOX ──
-let currentIdx = 0;
-function openLB(idx){
-  currentIdx = idx;
+let currentGallery = 0, currentIdx = 0;
+
+function openLB(gi, fi){
+  currentGallery = gi; currentIdx = fi;
   updateLB();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -261,21 +299,21 @@ function closeLB(){
   document.body.style.overflow = '';
 }
 function moveLB(dir){
-  currentIdx = (currentIdx + dir + hazmatFiles.length) % hazmatFiles.length;
+  const files = galleries[currentGallery].files;
+  currentIdx = (currentIdx + dir + files.length) % files.length;
   updateLB();
 }
 function updateLB(){
-  document.getElementById('lb-img').src = hazmatFiles[currentIdx];
-  document.getElementById('lb-counter').textContent = `${currentIdx + 1} / ${hazmatFiles.length}`;
+  const files = galleries[currentGallery].files;
+  document.getElementById('lb-img').src = files[currentIdx];
+  document.getElementById('lb-counter').textContent = `${currentIdx+1} / ${files.length}`;
 }
-document.getElementById('lightbox').addEventListener('click', function(e){
-  if(e.target === this) closeLB();
-});
+document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLB(); });
 document.addEventListener('keydown', e=>{
   if(!document.getElementById('lightbox').classList.contains('open')) return;
-  if(e.key === 'Escape') closeLB();
-  if(e.key === 'ArrowLeft') moveLB(-1);
-  if(e.key === 'ArrowRight') moveLB(1);
+  if(e.key==='Escape') closeLB();
+  if(e.key==='ArrowLeft') moveLB(-1);
+  if(e.key==='ArrowRight') moveLB(1);
 });
 
 // ── REVEAL ──
